@@ -1,3 +1,5 @@
+package mockito;
+
 public class Order {
 
     public Order() {

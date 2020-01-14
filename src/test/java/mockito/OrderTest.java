@@ -1,3 +1,7 @@
+package mockito;
+
+import mockito.Order;
+import mockito.PaymentProvider;
 import org.junit.Assert;
 import org.junit.Test;
 

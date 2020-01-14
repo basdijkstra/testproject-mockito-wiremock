@@ -1,3 +1,5 @@
+package mockito;
+
 import java.util.Random;
 
 public class PaymentProvider {
