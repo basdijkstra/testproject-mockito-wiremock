@@ -35,7 +35,7 @@ public class WireMockRequestMatchingTest {
 
         given().
             auth().preemptive().basic("username","password").
-            contentType("text/plain").
+            contentType(ContentType.TEXT).
             cookie("myCookie","chocolateChip").
         when().
             get("http://localhost:9876/request-matching").
