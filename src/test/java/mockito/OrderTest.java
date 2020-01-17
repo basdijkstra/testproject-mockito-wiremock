@@ -10,7 +10,7 @@ import static org.mockito.Mockito.*;
 public class OrderTest {
 
     @Test
-    public void checkoutOrder_usingRealDependency_paymentProcessingSucceeds_shouldYieldSuccess() {
+    public void checkoutOrder_usingRealDependency_shouldYieldSuccess() {
 
         Order order = new Order();
         PaymentProvider pp = new PaymentProvider();
