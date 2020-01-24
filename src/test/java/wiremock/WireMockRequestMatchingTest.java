@@ -13,7 +13,7 @@ public class WireMockRequestMatchingTest {
     @Rule
     public WireMockRule wireMockRule = new WireMockRule(9876);
 
-    public void receivePostToCheckoutWithAdditionalRequestProperties_RespondWithHttp200AndTextBody() {
+    private void receivePostToCheckoutWithAdditionalRequestProperties_RespondWithHttp200AndTextBody() {
 
         stubFor(
             post(
