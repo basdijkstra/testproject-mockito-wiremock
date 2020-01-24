@@ -13,36 +13,36 @@ public class WireMockRequestMatchingTest {
     @Rule
     public WireMockRule wireMockRule = new WireMockRule(9876);
 
-    public void createStubUsingRequestMatchingTechniques() {
+    public void receivePostToCheckoutWithAdditionalRequestProperties_RespondWithHttp200AndTextBody() {
 
         stubFor(
-            get(
-                urlEqualTo("/request-matching")
+            post(
+                urlEqualTo("/checkout")
             )
                 .withHeader("Content-Type", containing("text/plain"))
-                .withCookie("myCookie", equalTo("chocolateChip"))
-                .withBasicAuth("username","password")
+                .withCookie("sessionId", equalTo("abcde12345"))
+                .withBasicAuth("john","supersecret")
                 .willReturn(
                     aResponse()
                         .withStatus(200)
-                        .withBody("Your request satisfied all conditions.")));
+                        .withBody("Checkout completed successfully.")));
     }
 
     @Test
     public void invokeWireMockRequestMatchingStub_checkStatusCodeAndBody() {
 
-        createStubUsingRequestMatchingTechniques();
+        receivePostToCheckoutWithAdditionalRequestProperties_RespondWithHttp200AndTextBody();
 
         given().
-            auth().preemptive().basic("username","password").
+            auth().preemptive().basic("john","supersecret").
             contentType(ContentType.TEXT).
-            cookie("myCookie","chocolateChip").
+            cookie("sessionId","abcde12345").
         when().
-            get("http://localhost:9876/request-matching").
+            post("http://localhost:9876/checkout").
         then().
             assertThat().
             statusCode(200).
         and().
-            body(org.hamcrest.Matchers.equalTo("Your request satisfied all conditions."));
+            body(org.hamcrest.Matchers.equalTo("Checkout completed successfully."));
     }
 }
