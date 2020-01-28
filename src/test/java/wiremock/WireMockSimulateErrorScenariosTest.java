@@ -2,7 +2,6 @@ package wiremock;
 
 import com.github.tomakehurst.wiremock.http.Fault;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
-import io.restassured.http.ContentType;
 import org.apache.http.client.ClientProtocolException;
 import org.junit.Rule;
 import org.junit.Test;
