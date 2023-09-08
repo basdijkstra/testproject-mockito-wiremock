@@ -14,7 +14,7 @@
         <junit.version>4.13.1</junit.version>
         <mockito.version>3.2.4</mockito.version>
         <restassured.version>4.1.2</restassured.version>
-        <wiremock.version>2.25.1</wiremock.version>
+        <wiremock.version>2.35.1</wiremock.version>
         <slf4j.version>1.7.28</slf4j.version>
     </properties>
     <dependencies>
